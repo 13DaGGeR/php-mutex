@@ -2,6 +2,7 @@
 namespace mutex;
 class Mutex{
 	public static $dir='/var/lock/';
+	public static $autounlock = true;
 	public static function lock(string $name, int $timeout=0, int $pid=0, bool $recursive=false): bool{
 		if(!$pid) $pid = posix_getpid();
 		$ok = 0;
@@ -16,7 +17,8 @@ class Mutex{
 
 		if($ok){
 			file_put_contents("$dir/lock", "$pid:".time(), 2);
-			register_shutdown_function(function() use ($name){Mutex::unlock($name);});
+			if(static::$autounlock)
+				register_shutdown_function(function() use ($name){Mutex::unlock($name);});
 			return true;
 		}else
 			return false;

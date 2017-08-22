@@ -1,0 +1,12 @@
+#!/usr/bin/php
+<?
+$usage = 'mutex-lock alias [pid timeout]'."\n";
+require '/usr/lib/php-mutex/Mutex.php';
+use mutex\Mutex;
+
+$name = $argv[1] or die($usage);
+$pid = @(int)$argv[2]??0;
+$timeout = @(int)$argv[3]??0;
+
+Mutex::$autounlock = false;
+echo Mutex::lock($name, $timeout, $pid)? 'true': 'false';

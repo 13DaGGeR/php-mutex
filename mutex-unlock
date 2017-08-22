@@ -1,0 +1,10 @@
+#!/usr/bin/php
+<?
+$usage = 'mutex-unlock alias'."\n";
+require '/usr/lib/php-mutex/Mutex.php';
+use mutex\Mutex;
+
+$name = $argv[1] or die($usage);
+
+Mutex::$autounlock = false;
+echo Mutex::unlock($name)? 'true': 'false';
