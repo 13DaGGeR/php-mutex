@@ -1,0 +1,15 @@
+{
+  "name": "13dagger/mutex",
+  "description": "Simple MutEx lock implementation based on directory creation",
+  "keywords": ["mutex", "lock", "server task"],
+  "license": "GNU GPL v3.0",
+  "authors": [
+    {
+      "name": "13dagger",
+      "email": "13dagger@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^5.4"
+  }
+}
