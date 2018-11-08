@@ -13,5 +13,10 @@
     "php": ">=5.4",
     "ext-posix": "*",
     "ext-pcntl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "mutex\\": "src/mutex"
+    }
   }
 }

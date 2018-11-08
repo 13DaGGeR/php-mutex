@@ -4,7 +4,7 @@ $dir = __DIR__;
 $libdir = '/usr/lib/php-mutex';
 if(!is_dir($libdir))
 	mkdir($libdir);
-copy("$dir/Mutex.php", "$libdir/Mutex.php");
+copy("$dir/src/Mutex.php", "$libdir/Mutex.php");
 copy("$dir/mutex-lock", "/usr/bin/mutex-lock");
 chmod("/usr/bin/mutex-lock", 0755);
 copy("$dir/mutex-unlock", "/usr/bin/mutex-unlock");
