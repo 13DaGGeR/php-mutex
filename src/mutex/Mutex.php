@@ -9,7 +9,7 @@ namespace mutex;
 class Mutex
 {
     public static $dir = '/var/lock/';
-    public static $autounlock = true;
+    public static $autoUnlock = true;
 
     /**
      * Try to lock, execute something ONLY if lock returned true
@@ -34,7 +34,7 @@ class Mutex
 
         if ($ok) {
             file_put_contents("$dir/lock", "$pid:" . time(), 2);
-            if (static::$autounlock)
+            if (static::$autoUnlock)
                 register_shutdown_function(function () use ($name) {
                     Mutex::unlock($name);
                 });

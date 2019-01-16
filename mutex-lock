@@ -8,5 +8,5 @@ $name = $argv[1] or die($usage);
 $pid = @(int)$argv[2]??0;
 $timeout = @(int)$argv[3]??0;
 
-Mutex::$autounlock = false;
+Mutex::$autoUnlock = false;
 echo Mutex::lock($name, $timeout, $pid)? 'true': 'false';

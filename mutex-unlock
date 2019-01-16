@@ -6,5 +6,5 @@ use mutex\Mutex;
 
 $name = $argv[1] or die($usage);
 
-Mutex::$autounlock = false;
+Mutex::$autoUnlock = false;
 echo Mutex::unlock($name)? 'true': 'false';
